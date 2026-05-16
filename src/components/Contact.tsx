@@ -129,10 +129,12 @@ export default function Contact() {
                     type="text"
                     id="name"
                     required
+                    autoComplete="off"
+                    suppressHydrationWarning
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-[15px] transition-all"
-                    placeholder="Sundram"
+                    placeholder="Your full name"
                   />
                 </div>
                 <div>
@@ -141,10 +143,12 @@ export default function Contact() {
                     type="email"
                     id="email"
                     required
+                    autoComplete="off"
+                    suppressHydrationWarning
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-[15px] transition-all"
-                    placeholder="sundram@example.com"
+                    placeholder="Enter your email"
                   />
                 </div>
               </div>
@@ -154,10 +158,11 @@ export default function Contact() {
                   id="message"
                   required
                   rows={6}
+                  autoComplete="off"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-[15px] resize-none transition-all"
-                  placeholder="How can I help you?"
+                  placeholder="How can I help you today?"
                 />
               </div>
 
@@ -166,6 +171,7 @@ export default function Contact() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={submitted}
+                suppressHydrationWarning
                 className={`w-full md:w-auto px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg ${submitted
                   ? "bg-emerald-500 shadow-emerald-500/30 text-white"
                   : "bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/30 hover:shadow-primary-500/50"

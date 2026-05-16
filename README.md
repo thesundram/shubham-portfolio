@@ -26,9 +26,11 @@
 - 🔼 **Scroll To Top** — Global floating button appears after scrolling past Hero
 - 🃏 **Action Cards** — Clickable contact & social links (Mail Now, Call Now, etc.)
 - 🎨 **Custom Scrollbar** — Cyan gradient scrollbar matching brand theme
+- 📥 **CV Download** — One-click resume download from Hero section
 - 📱 **Fully Responsive** — Mobile, tablet, and desktop optimized
-- 🚀 **Performance** — Static generation, optimized images, fast load
+- 🚀 **Performance** — Static generation, optimized images (`sizes` prop), fast load
 - 🔍 **SEO Ready** — Full OpenGraph, Twitter card, keywords & metadata
+- 🗃️ **Centralized Data** — Single `src/lib/data.ts` file as source of truth for all content
 
 ---
 
@@ -52,9 +54,12 @@
 ```
 src/
 ├── app/
-│   ├── globals.css          # Tailwind v4 + custom animations + scrollbar
+│   ├── globals.css          # Tailwind v4 + custom animations + cyan scrollbar
 │   ├── layout.tsx           # Root layout + full SEO metadata + theme
 │   └── page.tsx             # Main page with LoadingScreen + CustomCursor
+│
+├── lib/
+│   └── data.ts              # ⭐ Single source of truth — all portfolio content
 │
 ├── components/
 │   ├── Header.tsx           # Navbar with scroll spy + active link highlight
@@ -67,7 +72,7 @@ src/
 │   ├── ParticleBackground.tsx   # Canvas particle animation
 │   ├── LoadingScreen.tsx    # Boot sequence loader with progress bar
 │   ├── ScrollToTop.tsx      # Floating global scroll-to-top button
-│   └── CustomCursor.tsx     # Custom cursor — dot + trailing ring
+│   └── CustomCursor.tsx     # Custom cursor — dot + trailing ring with lerp
 │
 public/
 ├── hero.png                 # Profile photo
@@ -75,6 +80,24 @@ public/
 ├── Shubham_resume.pdf       # Downloadable CV
 └── images/projects/         # Project screenshots
 ```
+
+---
+
+## ⭐ Data Architecture — `src/lib/data.ts`
+
+All content is centralized. To update anything, **edit only `data.ts`**:
+
+| Export | Used In | Description |
+|--------|---------|-------------|
+| `PERSONAL` | Hero, Footer, About, Contact | Name, email, phone, CV, bio |
+| `SOCIALS` | Hero, Footer, About | GitHub, LinkedIn, Instagram URLs |
+| `HERO_TITLES` | Hero | Typewriter animation words |
+| `HERO_BADGES` | Hero | Floating stat badges |
+| `SKILL_CATEGORIES` | About | Frontend, Backend, DB, Tools |
+| `EXPERIENCES` | ExperienceEducation | Work history timeline |
+| `EDUCATIONS` | ExperienceEducation | Education timeline |
+| `PROJECTS` | Portfolio | Project cards |
+| `CONTACT_INFO` | Contact | Contact info cards |
 
 ---
 
@@ -88,8 +111,8 @@ public/
 
 ```bash
 # Clone the repository
-git clone https://github.com/schauhan2001/portfolio.git
-cd portfolio
+git clone https://github.com/thesundram/shubham-portfolio.git
+cd shubham-portfolio
 
 # Install dependencies
 pnpm install
@@ -113,7 +136,7 @@ pnpm start
 
 | Section | Description |
 |---------|-------------|
-| **Hero** | Name gradient, typewriter title, floating image with glow rings + badges |
+| **Hero** | Name gradient, typewriter title, floating image with glow rings + stat badges |
 | **About** | Personal info rows + action cards (Mail, Call, GitHub, LinkedIn, Instagram) + skill pills |
 | **Resume** | Animated scroll-reveal timeline for work experience & education |
 | **Portfolio** | Project cards with image hover overlays, tech badges, and GitHub links |
@@ -132,8 +155,8 @@ pnpm start
 | **Border Radius** | `rounded-2xl` / `rounded-3xl` |
 | **Card Style** | Glassmorphism (`bg-white/5`, `backdrop-blur-md`) |
 | **Animation** | Framer Motion with `whileInView` scroll reveal |
-| **Cursor** | Custom dot + ring with lerp smoothing |
-| **Scrollbar** | 8px cyan gradient thumb |
+| **Cursor** | Custom dot + ring with lerp smoothing (12% easing) |
+| **Scrollbar** | 8px cyan gradient thumb on dark track |
 
 ---
 

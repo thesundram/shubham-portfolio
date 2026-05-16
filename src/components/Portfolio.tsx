@@ -3,40 +3,9 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { PROJECTS } from "@/lib/data";
 
 export default function Portfolio() {
-  const projects = [
-    {
-      title: "Socially – Social Media Platform",
-      category: "Full Stack",
-      description: "Scalable social media app with API integration, file uploads, and caching",
-      tech: ["Next.js", "PostgreSQL", "Prisma", "Clerk"],
-      github: "https://github.com/schauhan2001",
-      live: "#",
-      image: "/images/projects/socially.png",
-      gradient: "from-purple-600 to-indigo-600",
-    },
-    {
-      title: "E-Commerce Platform",
-      category: "Web Development",
-      description: "Full-stack e-commerce platform with payment integration and admin dashboard",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/schauhan2001",
-      live: "#",
-      image: "/images/projects/ecommerce.png",
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Gym Website",
-      category: "Frontend",
-      description: "Modern gym website with membership plans, trainer profiles, and class scheduling",
-      tech: ["React", "Tailwind CSS", "Node.js"],
-      github: "https://github.com/schauhan2001",
-      live: "#",
-      image: "/images/projects/gym-website.png",
-      gradient: "from-emerald-500 to-teal-500",
-    },
-  ];
 
   return (
     <section id="portfolio" className="py-24 bg-transparent relative z-10">
@@ -57,7 +26,7 @@ export default function Portfolio() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {PROJECTS.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -74,6 +43,7 @@ export default function Portfolio() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     onError={() => {}}
                   />

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Calendar, Building, MapPin, GraduationCap, Briefcase } from "lucide-react";
+import { EXPERIENCES, EDUCATIONS } from "@/lib/data";
 
 interface TimelineItem {
   title: string;
@@ -101,49 +102,8 @@ function Timeline({ title, icon, color, items }: TimelineProps) {
 }
 
 export default function ExperienceEducation() {
-  const experiences: TimelineItem[] = [
-    {
-      type: "experience",
-      title: "Freelance Web Developer",
-      subtitle: "Self-Employed",
-      duration: "Ongoing",
-      location: "Remote",
-      description: [
-        "Designed and developed responsive websites using HTML, CSS, JavaScript, React.js, and Bootstrap.",
-        "Worked with REST APIs, authentication systems, and third-party integrations to add dynamic functionality.",
-        "Improved website performance, SEO, and mobile responsiveness while delivering client projects on time.",
-      ],
-    },
-    {
-      type: "experience",
-      title: "Internship",
-      subtitle: "Static.int Educare",
-      duration: "Aug 2021 – Sep 2021",
-      location: "Mumbai, India",
-      description: [
-        "Completed my internship at Static.Int Educare from August 2021 to September 2021.",
-        "Worked on projects using Python, Android Studio, HTML, CSS, JavaScript, Git, and GitHub.",
-        "Successfully achieved 100% task completion during internship.",
-      ],
-    },
-  ];
-
-  const educations: TimelineItem[] = [
-    {
-      type: "education",
-      title: "B.Tech Computer Science & Engineering",
-      subtitle: "Chhatrapati Shivaji Maharaj University",
-      duration: "2022 — 2025",
-      location: "Mumbai, Maharashtra",
-    },
-    {
-      type: "education",
-      title: "Diploma in Information Technology",
-      subtitle: "Thakur Polytechnic",
-      duration: "2020 — 2022",
-      location: "Mumbai, Maharashtra",
-    },
-  ];
+  const experiences = EXPERIENCES;
+  const educations = EDUCATIONS;
 
   return (
     <section id="resume" className="py-24 bg-transparent relative z-10">
