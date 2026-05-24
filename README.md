@@ -165,7 +165,7 @@ pnpm start
 <div align="left">
   <p>
     © <b>2026</b> Designed &amp; Developed by <b>Sundram Pandey</b><br/>
-    <b>Sundram InfoTech PVT. LTD</b>
+    <b>Sundram Tech Solutions</b>
   </p>
 </div>
 
@@ -175,5 +175,5 @@ pnpm start
 
 > [!IMPORTANT]
 > **Proprietary & Confidential**  
-> This software is the sole property of **Sundram InfoTech PVT. LTD**  
+> This software is the sole property of **Sundram Tech Solutions**  
 > Unauthorized copying, distribution, or modification of this project is strictly prohibited.
